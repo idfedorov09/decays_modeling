@@ -20,9 +20,9 @@ This class represents the following attributes.
 
 * ```MyParticle.particle```. This is a string storing the unique name of the particle.
 
-* ```MyParticle.decays```. This is a list of decay options, containing the latex code of the decay products and the probabilities of the corresponding decays. For ease of data processing, each item in this list is a dictionary with the following fields:
+* ```MyParticle.decays```. This is a list of decay options, containing the $\LaTeX$code of the decay products and the probabilities of the corresponding decays. For ease of data processing, each item in this list is a dictionary with the following fields:
 	
-	* ``"latex"`` are decay products, in latex format. 
+	* ``"latex"`` are decay products, in $\LaTeX$format. 
 	
 	* ``"probability_wm"`` the probability of the corresponding decay, written as matisse
 	
