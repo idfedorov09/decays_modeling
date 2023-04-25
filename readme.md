@@ -35,3 +35,11 @@ The ``dpi`` parameter is responsible for the quality of the resulting image.
 ## About `data.json`
 
 This file stores all kinds of particles and results of their decays in the same format like ``MyParticle.decays``.
+
+
+
+# Requirements
+
+Just do `pip install -r requirements.txt`. 
+
+Also you will need $\LaTeX$ installed. For example, [MiKTeX](https://miktex.org/download) is fine. 
