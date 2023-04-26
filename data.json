@@ -67,5 +67,32 @@
       "delta_wm":0.8,
       "log_mantiss":-3
     }
+  ],
+  "W+":
+  [
+    {
+      "latex": "e^+$nu",
+      "probability_wm":10.71,
+      "delta_wm":0.16,
+      "log_mantiss":0
+    },
+    {
+      "latex": "$mu^+$nu",
+      "probability_wm":10.63,
+      "delta_wm":0.15,
+      "log_mantiss":0
+    },
+    {
+      "latex": "$tau^+$nu",
+      "probability_wm":11.38,
+      "delta_wm":0.21,
+      "log_mantiss":0
+    },
+    {
+      "latex": "$mbox{hadrons}",
+      "probability_wm":67.41,
+      "delta_wm":0.27,
+      "log_mantiss":0
+    }
   ]
 }
