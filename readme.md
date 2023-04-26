@@ -40,12 +40,6 @@ This file stores all kinds of particles and results of their decays in the same 
 
 
 
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 30b32808208a3c731a1d7ad5e33f0d5def2e4014
 # Requirements
 
 Just do `pip install -r requirements.txt`. 
