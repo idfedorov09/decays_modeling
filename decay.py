@@ -15,17 +15,17 @@ class MyParticle:
         self.decays = particle_info[particle]
         self.particle = particle
 
-    def gen_probability_by_num(self, num):
+    def __gen_probability_by_num(self, num):
         p = self.decays[num]["probability_wm"] * 10 ** (self.decays[num]["log_mantiss"]) * 10 ** (-2)
         dp = self.decays[num]["delta_wm"] * 10 ** (self.decays[num]["log_mantiss"]) * 10 ** (-2)
         return random.gauss(p, dp)
 
-    def gen_distribution(self):
+    def __gen_distribution(self):
         probabilities = {decay_res["latex"]: 0 for decay_res in self.decays}
 
         last = 0
         for i in range(len(self.decays)):
-            prob = self.gen_probability_by_num(i) + last
+            prob = self.__gen_probability_by_num(i) + last
             last = prob
             probabilities[self.decays[i]["latex"]] = prob
 
@@ -40,7 +40,7 @@ class MyParticle:
             to_iter = tqdm(to_iter, colour="#00d746")
 
         for _ in to_iter:
-            fake_distribution = self.gen_distribution()
+            fake_distribution = self.__gen_distribution()
 
             max_p = 1
             for i in fake_distribution:
@@ -62,11 +62,11 @@ class MyParticle:
 
         res["$mbox{Total}"] = count_of_particles
         if with_open:
-            self.gen_image(self.res_to_tex(res, count_of_particles), dpi)
+            self.__gen_image(self.__res_to_tex(res, count_of_particles), dpi)
 
         return res
 
-    def res_to_tex(self, ans_list, total):
+    def __res_to_tex(self, ans_list, total):
         text = '''
                 \\documentclass[preview, border = 5pt]{{standalone}}\n\\begin{{document}}\n\
                 \\begin{{center}}The result of modeling the decays of {particle} particles:\\end{{center}}
@@ -77,14 +77,14 @@ class MyParticle:
             text += "$$"
             text += cur + ": \\quad " + str(ans_list[i])
             if "Total" not in cur:
-                text += ",\\quad " + self.format_number(ans_list[i] / total)
+                text += ",\\quad " + self.__format_number(ans_list[i] / total)
             text += "\\\\"
             text += "$$"
 
         return text
 
     @staticmethod
-    def format_number(x):
+    def __format_number(x):
         a, b = '{:.3e}'.format(x).split('e')
         b = str(int(b) + 2)
         if a == '0.000':
@@ -96,5 +96,5 @@ class MyParticle:
         return f'{float(a):.3f}\\cdot 10^{{{int(b)}}}\\%'
 
     @staticmethod
-    def gen_image(latex_string, dpi):
+    def __gen_image(latex_string, dpi):
         preview('', output='png', preamble=latex_string, dvioptions=['-D', str(dpi)])
